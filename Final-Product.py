@@ -8,6 +8,7 @@ USER_FILE = "users.csv"
 TRANS = "transaction.csv"
 
 class User:
+    #do not forget this has dunder scores
     def __init__(self, username, user_id, password, balance):
         self.username = username
         self.user_id = user_id
@@ -316,6 +317,7 @@ def show_all_transaction(user_id):
     plt.title(f"Transaction Breakdown for {period_name}")
     plt.show()
 
+#correct this one
 def trans_data():
     df = pd.read_csv(TRANS)
     df["Date"] = pd.to_datetime(df["Date"]).dt.date
@@ -425,7 +427,7 @@ def view_inc_exsp():
     plt.ylabel("Amount ($)")
     plt.xticks(rotation=45)
     plt.show()
-
+#another one 
 if __name__ == "__main__":
     while True:
         print("\n1. Register\n2. Login\n3. Analyze Transaction\n4. User Data\n5. View total Income and Expense this weeks\n6. Exit")
