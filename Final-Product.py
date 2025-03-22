@@ -338,7 +338,8 @@ def trans_data():
         print("3. Transfer in")
         print("4. Transfer out")
         print("5. All transaction as pie chart")
-        trans_opt = input("Enter your choices(1-4): ")
+        trans_opt = input("Enter your choices(1-5): ")
+        
         if trans_opt == "1":
             filtered_df = df[(df["Date"] >= start_date) & (df["Transaction_type"] == "Deposit") & (df["Sender_id"].astype(str) == user_id)]
             Trans_category = "Deposit"
@@ -365,22 +366,22 @@ def trans_data():
             print("No transactions found in the last 7 days.")
             return
 
-        daily_totals = filtered_df.groupby(["Date"])["Amount($)"].sum()
-        date_range = pd.date_range(start=start_date, end=today).date
-        daily_totals = daily_totals.reindex(date_range, fill_value=0)
+    daily_totals = filtered_df.groupby(["Date"])["Amount($)"].sum()
+    date_range = pd.date_range(start=start_date, end=today).date
+    daily_totals = daily_totals.reindex(date_range, fill_value=0)
 
-        plt.figure(figsize=(10, 5))
-        bars = daily_totals.plot(kind="bar", color="skyblue", edgecolor="black")
-        plt.xlabel("Date")
-        plt.ylabel("Total Amount ($)")
-        plt.title(f"{Trans_category} Transactions (Last 7 Days) for User ID {user_id}")
-        plt.xticks(rotation=0)
-        for bar in bars.patches:
-            plt.text(bar.get_x() + bar.get_width() / 2, 
-                    bar.get_height(), 
-                    f"${bar.get_height():.2f}", 
-                    ha="center", va="bottom", fontsize=10)
-        plt.show()
+    plt.figure(figsize=(10, 5))
+    bars = daily_totals.plot(kind="bar", color="skyblue", edgecolor="black")
+    plt.xlabel("Date")
+    plt.ylabel("Total Amount ($)")
+    plt.title(f"{Trans_category} Transactions (Last 7 Days) for User ID {user_id}")
+    plt.xticks(rotation=0)
+    for bar in bars.patches:
+        plt.text(bar.get_x() + bar.get_width() / 2, 
+                bar.get_height(), 
+                f"${bar.get_height():.2f}", 
+                ha="center", va="bottom", fontsize=10)
+    plt.show()
 
 def show_data_user():
     df = pd.read_csv(USER_FILE)
