@@ -358,7 +358,7 @@ def trans_data():
             break
         elif trans_opt == "5":
             show_all_transaction(user_id)
-            break
+            return
         else:
             print("Invalid option. Please enter number in range(1-4).")
 
