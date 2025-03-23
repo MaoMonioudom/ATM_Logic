@@ -13,3 +13,19 @@ This project simulates ATM machine logic with a GUI. It allows users to login, c
 clone or download the repository
 ```bash
 git clone https://github.com/MaoMonioudom/ATM_Logic.git
+```
+Install dependencies:
+```bash
+pip install matplotlib
+```
+```bash
+pip install pandas
+```
+```bash
+pip install tkinter
+```
+
+## Usage
+to run the project:
+```bash
+python GUI.py
