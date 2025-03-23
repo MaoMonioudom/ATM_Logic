@@ -29,3 +29,6 @@ pip install tkinter
 to run the project:
 ```bash
 python GUI.py
+```
+
+## GitHub Link
