@@ -28,8 +28,10 @@ pip install tkinter
 ## Usage
 to run the project:
 ```bash
+cd Main
+```
+```bash
 python GUI.py
 ```
 
 ## GitHub Link
-https://github.com/MaoMonioudom/ATM_Logic
